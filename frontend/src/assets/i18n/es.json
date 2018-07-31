@@ -1,0 +1,11 @@
+{
+    "wait_message": "Por favor espere, estamos cargando la página ...",
+    "login_top_card": "Servicio de Login",
+    "login_form_title": "Ingrese en su Cuenta",
+    "login_form_input_username": "Usuario",
+    "login_form_input_password": "Contraseña",
+    "login_form_check_rememberme": "Permanecer Conectado",
+    "login_form_signin_button": "Ingresar",
+    "login_form_signup_button": "Registrarse",
+    "login_form_check_reset_password": "Resetear Contraseña"
+}

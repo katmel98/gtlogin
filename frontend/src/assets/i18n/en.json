@@ -1,0 +1,11 @@
+{
+    "wait_message": "Please wait we are loading the page ...",
+    "login_top_card": "Login Service",
+    "login_form_title": "Sing in to your Account",
+    "login_form_input_username": "Username",
+    "login_form_input_password": "Password",
+    "login_form_check_rememberme": "Remember Me!",
+    "login_form_signin_button": "Sign In",
+    "login_form_signup_button": "Sign Up",
+    "login_form_check_reset_password": "Forgot Password?"
+}

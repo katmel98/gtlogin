@@ -1,0 +1,8 @@
+.nyc_output/
+.sonarlint/
+.vscode
+.DS_Store
+.Thumb
+coverage/
+node_modules/
+**/package-lock.json

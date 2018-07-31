@@ -1,0 +1,13 @@
+{
+  "name": "gtlogin",
+  "version": "1.0.0",
+  "description": "Login Service",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "author": "Geddeontech SL",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
