@@ -7,5 +7,21 @@
     "login_form_check_rememberme": "Permanecer Conectado",
     "login_form_signin_button": "Ingresar",
     "login_form_signup_button": "Registrarse",
-    "login_form_check_reset_password": "Resetear Contraseña"
+    "login_form_check_reset_password": "Resetear Contraseña",
+    "signup_top_card": "Servicio de Login",
+    "signup_form_title": "Registre su Cuenta",
+    "signup_form_input_name": "Nombre(s) y Apellido(s)",
+    "signup_form_input_email": "Dirección de email",
+    "signup_form_input_password": "Contraseña",
+    "signup_form_input_confirm_password": "Confirmar Contraseña",
+    "signup_form_check_conditions": "He leído y acepto los ",
+    "signup_form_check_terms": "términos de uso.",
+    "signup_form_button_signup": "REGISTRARSE",
+    "signup_already_in": "¡Ya estoy registrado!",
+    "forgot_password_top_card": "Servicio de Login",
+    "forgot_password_form_title": "¿Olvidó su Contraseña?",
+    "forgot_password_form_descrip": "Introduzca su dirección de email para reiniciar su contraseña",
+    "forgot_password_form_input_email": "Dirección de email",
+    "forgot_password_form_button_reset": "RESETEAR MI CONTRASEÑA",
+    "forgot_password_login": "¡Entrar a la plataforma!"
 }

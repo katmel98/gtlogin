@@ -9,7 +9,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
-import { appRoutes } from './routerConfig';
+import { WaitComponent } from './wait/wait.component';
+import { AppRoutingModule } from './app-routing.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,21 +26,20 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     LoginComponent,
     SignupComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    WaitComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      appRoutes
-    ),
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
         }
-    })
+    }),
+    AppRoutingModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'ES'}

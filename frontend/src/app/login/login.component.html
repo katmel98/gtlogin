@@ -1,3 +1,6 @@
+<app-wait></app-wait>
+<router-outlet></router-outlet>
+
 <div class="authentication">
     <div class="card">
         <div class="body">
@@ -33,11 +36,11 @@
                     </div>                        
                 </form>
                 <div class="col-lg-12">
-                    <a href="index.html" class="btn btn-raised btn-primary waves-effect">{{ 'login_form_signin_button' | translate }}</a>
-                    <a href="sign-up.html" class="btn btn-raised btn-default waves-effect">{{ 'login_form_signup_button' | translate }}</a>
+                    <a href="/" class="btn btn-raised btn-primary waves-effect">{{ 'login_form_signin_button' | translate }}</a>
+                    <a href="/signup" class="btn btn-raised btn-default waves-effect">{{ 'login_form_signup_button' | translate }}</a>
                 </div>
                 <div class="col-lg-12 m-t-20">
-                    <a class="" href="forgot-password.html">{{ 'login_form_check_reset_password' | translate }}</a>
+                    <a class="" href="/passwordReset">{{ 'login_form_check_reset_password' | translate }}</a>
                 </div>                    
             </div>
         </div>
