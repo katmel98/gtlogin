@@ -1,3 +1,4 @@
+import { AppConfigService } from './../_services/app-config.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

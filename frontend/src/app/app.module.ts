@@ -1,6 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
+import { AppConfigService } from './_services/app-config.service';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { LOCALE_ID, NgModule, APP_INITIALIZER } from '@angular/core';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -10,11 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { WaitComponent } from './wait/wait.component';
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './_routes/app-routing.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+
+export function initializeApp(appConfig: AppConfigService) {
+  return () => appConfig.load();
 }
 
 // export function createTranslateLoader(http: HttpClient) {
@@ -39,10 +43,17 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
         }
     }),
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'ES'}
+    AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [AppConfigService], multi:  true
+    },
+    {provide: LOCALE_ID, useValue: 'ES'},
+    Title
   ],
   bootstrap: [AppComponent]
 })
