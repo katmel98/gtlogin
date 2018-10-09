@@ -16,32 +16,39 @@
                         </ul>
                     </div>                        
                 </div>
-                <form class="col-lg-12" id="sign_in" method="POST">
+                <form class="col-lg-12" id="sign_in" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                     <h5 class="title">{{ 'login_form_title' | translate }}</h5>
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="text" class="form-control">
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                             <label class="form-label">{{ 'login_form_input_username' | translate }}</label>
+                            <div *ngIf="submitted && f.username.errors" class="help-info">
+                                <div *ngIf="f.username.errors.required">{{ 'login_validation_error_username_required' | translate }}</div>
+                                <div *ngIf="f.username.errors.email">{{ 'login_validation_error_email_not_valid' | translate }}</div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="password" class="form-control">
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                             <label class="form-label">{{ 'login_form_input_password' | translate }}</label>
+                            <div *ngIf="submitted && f.password.errors" class="help-info">
+                                <div *ngIf="f.password.errors.required">{{ 'login_validation_error_password_required' | translate }}</div>
+                            </div>                            
                         </div>
                     </div>
-                    <div>
-                        <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-cyan">
+                    <div class="form-group">
+                        <input type="checkbox" formControlName="rememberme" name="rememberme" id="rememberme" class="filled-in chk-col-cyan">
                         <label for="rememberme">{{ 'login_form_check_rememberme' | translate }}</label>
                     </div>                        
+                    <div class="col-lg-12 form-group">
+                        <button [disabled]="loading" class="btn btn-raised btn-primary waves-effect">{{ 'login_form_signin_button' | translate }}</button>
+                        <a href="/signup" class="btn btn-raised btn-default waves-effect">{{ 'login_form_signup_button' | translate }}</a>
+                    </div>
+                    <div class="col-lg-12 m-t-20">
+                        <a class="" href="/passwordReset">{{ 'login_form_check_reset_password' | translate }}</a>
+                    </div>                    
                 </form>
-                <div class="col-lg-12">
-                    <a href="/" class="btn btn-raised btn-primary waves-effect">{{ 'login_form_signin_button' | translate }}</a>
-                    <a href="/signup" class="btn btn-raised btn-default waves-effect">{{ 'login_form_signup_button' | translate }}</a>
-                </div>
-                <div class="col-lg-12 m-t-20">
-                    <a class="" href="/passwordReset">{{ 'login_form_check_reset_password' | translate }}</a>
-                </div>                    
             </div>
         </div>
     </div>

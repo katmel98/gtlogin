@@ -17,6 +17,7 @@ export interface IAppConfig {
     apiServer?: {
         metadata: string;
         rules: string;
+        localLogin: string;
     };
     debug?: boolean;
 }

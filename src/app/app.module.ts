@@ -3,6 +3,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule, APP_INITIALIZER } from '@angular/core';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,8 @@ export function initializeApp(appConfig: AppConfigService) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
@@ -50,7 +53,8 @@ export function initializeApp(appConfig: AppConfigService) {
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
-      deps: [AppConfigService], multi:  true
+      deps: [AppConfigService],
+      multi:  true
     },
     {provide: LOCALE_ID, useValue: 'ES'},
     Title

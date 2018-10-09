@@ -16,7 +16,8 @@
     },
     "apiServer": {
         "metadata": "https://#{apiServerPrefix}.demo.com/api/v1.0/",
-        "rule": "https://#{apiServerPrefix}.demo.com/api/v1.0/"
+        "rule": "https://#{apiServerPrefix}.demo.com/api/v1.0/",
+        "local_login": "http://localhost:3000/api"
     },
     "debug": false
 }
