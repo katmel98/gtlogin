@@ -15,43 +15,51 @@
                         </ul>
                     </div>                        
                 </div>
-                <form class="col-lg-12" id="sign_in" method="POST">
+                <form class="col-lg-12" id="sign_in" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
                     <h5 class="title">{{ 'signup_form_title' | translate }}</h5>
-                    <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" class="form-control">
-                                <label class="form-label">{{ 'signup_form_input_name' | translate }}</label>
-                            </div>
-                        </div>
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="email" class="form-control">
+                                <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
                                 <label class="form-label">{{ 'signup_form_input_email' | translate }}</label>
+                                <div *ngIf="submitted && f.email.errors" class="help-info" >
+                                    <div *ngIf="f.email.errors.required">{{ 'validation_error_email_required' | translate }}</div>
+                                    <div *ngIf="f.email.errors.email">{{ 'validation_error_email_not_valid' | translate }}</div>
+                                    <div *ngIf="f.email.errors.emailUserLength">{{ 'validation_error_email_not_valid' | translate }}</div>
+                                </div>    
                             </div>
                         </div>
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="password" class="form-control">
+                                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
                                 <label class="form-label">{{ 'signup_form_input_password' | translate }}</label>
+                                <div *ngIf="submitted && f.password.errors" class="help-info" >
+                                    <div *ngIf="f.password.errors.required">{{ 'validation_error_password_required' | translate }}</div>
+                                </div>    
                             </div>
                         </div>
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="password" class="form-control">
+                                <input type="password" formControlName="confirm" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirm.errors }">
                                 <label class="form-label">{{ 'signup_form_input_confirm_password' | translate }}</label>
+                                <div *ngIf="submitted && f.confirm.errors" class="help-info" >
+                                    <div *ngIf="f.confirm.errors.required">{{ 'validation_error_confirm_required' | translate }}</div>
+                                </div>    
+                                <div *ngIf="submitted && f_group.errors" class="help-info" >
+                                    <div *ngIf="f_group.errors.notMatchPassword">{{ 'validation_error_confirm_not_equal' | translate }}</div>
+                                </div>
                             </div>
                         </div>
                     <div>
-                         <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
+                        <input type="checkbox" name="terms" id="terms" formControlName="terms" class="filled-in chk-col-pink" [ngClass]="{ 'is-invalid': submitted && f.terms.errors }">
                         <label for="terms">{{ 'signup_form_check_conditions' | translate }} <a href="javascript:void(0);">{{ 'signup_form_check_terms' | translate }}</a>.</label>
                     </div>                        
+                    <div class="col-lg-12">                        
+                        <button [disabled]="loading" class="btn btn-raised btn-primary waves-effect">{{ 'signup_form_button_signup' | translate }}</button>
+                    </div>
+                    <div class="col-lg-12 m-t-20">
+                        <a href="/login">{{ 'signup_already_in' | translate }}</a>
+                    </div>                    
                 </form>
-                <div class="col-lg-12">                        
-                    <a href="javascript:void(0);" class="btn btn-raised btn-primary waves-effect">{{ 'signup_form_button_signup' | translate }}</a>                        
-                </div>
-                <div class="col-lg-12 m-t-20">
-                    <a href="/login">{{ 'signup_already_in' | translate }}</a>
-                </div>                    
             </div>
         </div>
     </div>

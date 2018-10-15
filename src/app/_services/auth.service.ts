@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Credential } from '../_models/credential.model';
+import { User } from '../_models/user.model';
 
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,32 +13,62 @@ import { Credential } from '../_models/credential.model';
 export class AuthService {
 
   private config;
+  private baseUrl;
 
   constructor(
         private http: HttpClient,
   ) {
         this.config = AppConfigService.settings;
+        this.baseUrl = this.config.apiServer.localLogin;
+  }
+
+  register(user: User) {
+    return this.http.post(`${this.baseUrl}/auth/register`, user);
   }
 
   login(creds: Credential) {
         console.log(creds);
         console.log(this.config);
-        return this.http.post<any>(`${this.config.apiServer.localLogin}/auth/login`, creds)
+        return this.http.post<any>(`${this.baseUrl}/auth/login`, creds)
         .pipe(map(user => {
             console.log(user);
             // login successful if there's a jwt token in the response
-            if (user && user.token) {
+            if (user && user.access_token) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.setSession(user);
             }
-
             return user;
         }));
     }
 
-  logout() {
-      // remove user from local storage to log user out
-      localStorage.removeItem('currentUser');
-  }
+    private setSession(authResult) {
+        const expiresAt = moment().add(authResult.expiresIn, 'second');
+
+        localStorage.setItem('currentUser', JSON.stringify(authResult));
+        localStorage.setItem('access_token', authResult.access_token);
+        localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
+    }
+
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('expires_at');
+    }
+
+    public isLoggedIn() {
+        return moment().isBefore(this.getExpiration());
+    }
+
+    isLoggedOut() {
+        return !this.isLoggedIn();
+    }
+
+    getExpiration() {
+        const expiration = localStorage.getItem('expires_at');
+        const expiresAt = JSON.parse(expiration);
+        return moment(expiresAt);
+    }
+
 
 }

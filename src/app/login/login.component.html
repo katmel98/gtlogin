@@ -23,8 +23,9 @@
                             <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                             <label class="form-label">{{ 'login_form_input_username' | translate }}</label>
                             <div *ngIf="submitted && f.username.errors" class="help-info">
-                                <div *ngIf="f.username.errors.required">{{ 'login_validation_error_username_required' | translate }}</div>
-                                <div *ngIf="f.username.errors.email">{{ 'login_validation_error_email_not_valid' | translate }}</div>
+                                <div *ngIf="f.username.errors.required">{{ 'validation_error_email_required' | translate }}</div>
+                                <div *ngIf="f.username.errors.email">{{ 'validation_error_email_not_valid' | translate }}</div>
+                                <div *ngIf="f.username.errors.emailUserLength">{{ 'validation_error_email_not_valid' | translate }}</div>
                             </div>
                         </div>
                     </div>
@@ -33,7 +34,7 @@
                             <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                             <label class="form-label">{{ 'login_form_input_password' | translate }}</label>
                             <div *ngIf="submitted && f.password.errors" class="help-info">
-                                <div *ngIf="f.password.errors.required">{{ 'login_validation_error_password_required' | translate }}</div>
+                                <div *ngIf="f.password.errors.required">{{ 'validation_error_password_required' | translate }}</div>
                             </div>                            
                         </div>
                     </div>

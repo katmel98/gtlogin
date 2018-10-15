@@ -13,6 +13,8 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { WaitComponent } from './wait/wait.component';
 import { AppRoutingModule } from './_routes/app-routing.module';
 
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -32,9 +34,10 @@ export function initializeApp(appConfig: AppConfigService) {
     LoginComponent,
     SignupComponent,
     PasswordResetComponent,
-    WaitComponent
+    WaitComponent,
   ],
   imports: [
+    SweetAlert2Module.forRoot(),
     BrowserModule,
     HttpClientModule,
     FormsModule,

@@ -19,5 +19,9 @@
         "rules": "https://rules.demo.com/api/v1.0/",
         "localLogin": "http://localhost:3000"
     },
+    "redirectionApp": {
+        "admin": "http://localhost:4300",
+        "app": ""
+    },
     "debug": true
 }
