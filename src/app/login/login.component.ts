@@ -80,7 +80,7 @@ export class LoginComponent implements OnInit {
             type: 'error',
             toast: true,
             position: 'top',
-            timer: 7200,
+            timer: this.config.errors.toast_timer,
             showConfirmButton: false
           });
           this.loading = false;

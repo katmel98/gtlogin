@@ -66,6 +66,20 @@ export class SignupComponent implements OnInit {
         },
         error => {
             console.log(error);
+            let info: string;
+            if (error.status === 422) {
+              info = this.translate.instant('frontend_error_signup_user_exists');
+            }
+            swal({
+              text: info,
+              title: '',
+              type: 'error',
+              toast: true,
+              position: 'top',
+              timer: this.config.errors.toast_timer,
+              showConfirmButton: false
+            });
+
             this.loading = false;
         }
       );

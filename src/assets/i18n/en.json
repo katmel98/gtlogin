@@ -37,5 +37,7 @@
     "frontend_error_login_email_not_valid_text": "Email is not valid",
     "frontend_error_login_user_not_found_text": "User not found",
     "frontend_error_login_invalid_credentials_text": "Bad credentials",
-    "frontend_error_signup_terms_needed_text": "In order to signup, you must accept terms of use"
+    "frontend_error_signup_terms_needed_text": "In order to signup, you must accept terms of use",
+    "frontend_error_signup_user_exists": "This user is registered already"
+
 }

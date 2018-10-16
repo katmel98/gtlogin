@@ -23,5 +23,8 @@
         "admin": "http://localhost:4300",
         "app": ""
     },
+    "errors": {
+        "toast_timer": 5400
+    },
     "debug": true
 }

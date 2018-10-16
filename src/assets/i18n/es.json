@@ -37,5 +37,6 @@
     "frontend_error_login_email_not_valid_text": "El formato del email no es válido",
     "frontend_error_login_user_not_found_text": "El usuario noo existe",
     "frontend_error_login_invalid_credentials_text": "Credenciales incorrectas",
-    "frontend_error_signup_terms_needed_text": "Es necesario que acepte los términos de uso"
+    "frontend_error_signup_terms_needed_text": "Es necesario que acepte los términos de uso",
+    "frontend_error_signup_user_exists": "Este usuario ya existe"
 }
