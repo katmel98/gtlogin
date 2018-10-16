@@ -60,9 +60,22 @@ export class SignupComponent implements OnInit {
       this.authService.register(user)
       .subscribe(
         data => {
-          console.log(data);
+          if ( data ) {
+            console.log(data);
+            swal({
+              text: this.translate.instant('signup_form_signup_Ok'),
+              title: '',
+              type: 'success',
+              toast: false,
+              position: 'center',
+              timer: this.config.errors.toast_timer,
+              showConfirmButton: true,
+              onClose: () => {
+                window.location.href = '/login';
+              }
+            });
+          }
             // this.router.navigate([this.returnUrl]);
-            // window.location.href = '/login';
         },
         error => {
             console.log(error);
@@ -84,7 +97,7 @@ export class SignupComponent implements OnInit {
         }
       );
     } else {
-      const info = this.translate.instant('frontend_error_signup_terms_needed_text')
+      const info = this.translate.instant('frontend_error_signup_terms_needed_text');
       swal({
         text: info,
         title: '',

@@ -8,7 +8,6 @@ import swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
 import { CustomValidatorService } from '../_services/custom-validator.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -68,11 +67,11 @@ export class LoginComponent implements OnInit {
           console.log(error);
           let info: string;
           if ( error.status === 400 ) {
-              info = this.translate.instant('frontend_error_login_email_not_valid_text')
+              info = this.translate.instant('frontend_error_login_email_not_valid_text');
           } else if (error.status === 404) {
-              info = this.translate.instant('frontend_error_login_user_not_found_text')
+              info = this.translate.instant('frontend_error_login_user_not_found_text');
           } else if (error.status === 403) {
-              info = this.translate.instant('frontend_error_login_invalid_credentials_text')
+              info = this.translate.instant('frontend_error_login_invalid_credentials_text');
           }
           swal({
             text: info,

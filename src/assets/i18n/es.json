@@ -21,6 +21,7 @@
     "signup_form_check_terms": "términos de uso.",
     "signup_form_button_signup": "REGISTRARSE",
     "signup_already_in": "¡Ya estoy registrado!",
+    "signup_form_signup_Ok": "Su usuario ha sido creado correctamente. Por favor, revise du dirección email para confirmar el registro.",
     "forgot_password_top_card": "Servicio de Login",
     "forgot_password_form_title": "¿Olvidó su Contraseña?",
     "forgot_password_form_descrip": "Introduzca su dirección de email para reiniciar su contraseña",

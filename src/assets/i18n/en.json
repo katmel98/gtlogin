@@ -20,6 +20,7 @@
     "signup_form_check_conditions": "I read and agree to the ",
     "signup_form_check_terms": "terms of usage.",
     "signup_form_button_signup": "SIGN UP",
+    "signup_form_signup_Ok": "Your user has been creater correctly. Please check your email to confirm registration.",
     "signup_already_in": "Already have a membership?",
     "forgot_password_top_card": "Login Service",
     "forgot_password_form_title": "Forgot Password?",
@@ -39,5 +40,4 @@
     "frontend_error_login_invalid_credentials_text": "Bad credentials",
     "frontend_error_signup_terms_needed_text": "In order to signup, you must accept terms of use",
     "frontend_error_signup_user_exists": "This user is registered already"
-
 }
