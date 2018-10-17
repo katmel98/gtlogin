@@ -15,7 +15,7 @@ export const environment = {
     apiServer: {
         metadata: 'https://metadata.demo.com/api/v1.0/',
         rules: 'https://rules.demo.com/api/v1.0/',
-        localLogin: 'http://localhost:3000'
+        authAPI: 'http://localhost:3000'
     },
     debug: true
 };

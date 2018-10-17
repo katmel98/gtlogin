@@ -55,17 +55,33 @@ export class LoginComponent implements OnInit {
         return;
     }
     this.loading =  true;
+    let info: string;
     this.authService.login(creds)
     .pipe(first())
     .subscribe(
       data => {
         console.log(data);
           // this.router.navigate([this.returnUrl]);
-          window.location.href = `${this.config.redirectionApp.admin}?user_id=${creds.email}`;
+          // localStorage.setItem('currentUser', JSON.stringify(data));
+          if ( data === null) {
+            info = this.translate.instant('frontend_error_login_user_not_found_text');
+            swal({
+              text: info,
+              title: '',
+              type: 'error',
+              toast: true,
+              position: 'top',
+              timer: this.config.errors.toast_timer,
+              showConfirmButton: false
+            });
+            this.loading = false;
+          } else {
+            console.log(data);
+            window.location.href = `${this.config.redirectionApp.admin}?auth=${data}`;
+          }
       },
-      error => {
+        error => {
           console.log(error);
-          let info: string;
           if ( error.status === 400 ) {
               info = this.translate.instant('frontend_error_login_email_not_valid_text');
           } else if (error.status === 404) {
